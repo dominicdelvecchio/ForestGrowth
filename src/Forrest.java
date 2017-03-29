@@ -1,3 +1,6 @@
+import javafx.scene.Group;
+import javafx.scene.paint.Color;
+
 /**
  * Created by Dominic on 3/27/2017.
  */
@@ -7,7 +10,8 @@ public class Forrest
   private Cell [][] forrest = new Cell[forestSize][forestSize];
   private int wall = 9;
   private int bioMass;
-  
+  private int gridSpace =1;
+  public Group grid = new Group();
   
   Forrest (int growthProb)
   {
@@ -17,6 +21,9 @@ public class Forrest
       {
         Cell cell = new Cell(x,y,growthProb);
         forrest [y][x] = cell;
+        grid.getChildren().add(cell);
+        cell.setTranslateY(y);
+        cell.setTranslateX(x);
         
       }
     }
@@ -76,5 +83,52 @@ public class Forrest
   {
     return forrest[y][x];
   }
-}
 
+
+public void simulate()
+{
+  for(int y=1; y<251; y++)
+  {
+    for(int x=1; x<251; x++)
+    {
+      if(forrest[y][x].getStatus() ==2)
+      {
+        forrest[y][x].setStatus(3);
+        forrest[y][x].setFill(Color.RED);
+      }
+      else if(forrest[y][x].getStatus() ==4)
+      {
+        forrest[y][x].setStatus(0);
+        forrest[y][x].setFill(Color.WHITE);
+        
+      }
+      else if(forrest[y][x].getStatus() ==5)
+      {
+        forrest[y][x].setStatus(1);
+        forrest[y][x].setFill(Color.GREEN);
+      }
+    }
+  }
+  for(int y=1; y<251; y++)
+  {
+    for(int x=1; x<251; x++)
+    {
+      if(forrest[y][x].getStatus() ==3)
+      {
+        setFire(y,x);
+        forrest[y][x].setStatus(4);
+      }
+    }
+  }
+  
+  for(int y=1; y<251; y++)
+  {
+    for(int x=1; x<251; x++)
+    {
+      forrest[y][x].growTree();
+      forrest[y][x].lightning();
+    }
+  }
+  System.out.println(sumGrowth());
+}
+}
