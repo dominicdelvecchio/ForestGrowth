@@ -1,65 +1,86 @@
+import javafx.animation.Animation;
+import javafx.animation.KeyFrame;
+import javafx.animation.KeyValue;
+import javafx.animation.Timeline;
 import javafx.application.Application;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
+import javafx.scene.DepthTest;
+import javafx.scene.Group;
+import javafx.scene.PerspectiveCamera;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.ScrollBar;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.HBox;
+import javafx.scene.paint.Color;
+import javafx.scene.transform.Rotate;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
 public class Main extends Application
 {
   public static int timer = 0;
   public static int count =0;
-  
-    public static void main(String[] args)
-    {
-      Forrest forrest = new Forrest(5);
-      
-      while(timer < 5000)
-      {
-        for(int y=1; y<251; y++)
-        {
-          for(int x=1; x<251; x++)
-          {
-            if(forrest.getCell(y,x).getStatus() ==2)
-            {
-              forrest.getCell(y,x).setStatus(3);
-            }
-            else if(forrest.getCell(y,x).getStatus() ==4)
-            {
-              forrest.getCell(y,x).setStatus(0);
-            }
-            else if(forrest.getCell(y,x).getStatus() ==5)
-            {
-              forrest.getCell(y,x).setStatus(1);
-            }
-          }
-        }
-        for(int y=1; y<251; y++)
-        {
-          for(int x=1; x<251; x++)
-          {
-            if(forrest.getCell(y,x).getStatus() ==3)
-            {
-              forrest.setFire(y,x);
-              forrest.getCell(y,x).setStatus(4);
-            }
-          }
-        }
-        
-        for(int y=1; y<251; y++)
-        {
-          for(int x=1; x<251; x++)
-          {
-            forrest.getCell(y,x).growTree();
-            forrest.getCell(y,x).lightning();
-          }
-        }
-        System.out.println(forrest.sumGrowth());
-        timer++;
-        //System.out.println(timer);
-      }
-      
-    }
-  
+  //public Group grid = new Group();
+  private Group root = new Group();
+  private final PerspectiveCamera camera = new PerspectiveCamera(false);
+  final Timeline forestAnimation = new Timeline();
+  private int animationTime = 1;
   @Override
-  public void start(Stage primaryStage) throws Exception
+  public void start(Stage stage) throws Exception
   {
-    
+    Forrest forest = new Forrest(5);
+    BorderPane game = new BorderPane();
+    HBox top = new HBox();
+    top.getPadding();
+    game.setCenter(forest.grid);
+    //forest.grid.setLayoutX(250);
+    //forest.grid.setLayoutY(250);
+    //ScrollBar zoom = new ScrollBar();
+    //zoom.setMin(0);
+    //zoom.setMax(3);
+    //zoom.setBlockIncrement(.05);
+    //zoom.setUnitIncrement(.05);
+    //forest.grid.scaleZProperty().bind(zoom.valueProperty());
+    //Button to start game after selections have been made
+    Button start = new Button();
+    start.setText("START");
+    start.setOnAction(new EventHandler<ActionEvent>()
+    {
+      @Override
+      public void handle(ActionEvent event)
+      {
+        //Timmeline for the animation portion of the game
+      
+        KeyFrame life = new KeyFrame(Duration.seconds(animationTime),
+                new EventHandler<ActionEvent>()
+                {
+                  public void handle(ActionEvent event)
+                  {
+                    forest.simulate();
+                  }
+                });
+        forestAnimation.getKeyFrames().add(life);
+        forestAnimation.setCycleCount(Animation.INDEFINITE);
+        forestAnimation.play();
+        
+        
+      }
+    });
+    //top.getChildren().addAll(zoom, R1, R2, R3, R4, random, preset1, preset2, preset3, preset4, start);
+    top.getChildren().add(start);
+    game.setTop(top);
+    root.getChildren().add(game);
+    Scene scene = new Scene(root, 500, 500, Color.ALICEBLUE);
+    //root.setDepthTest(DepthTest.ENABLE);
+    stage.setTitle("Forest Growth Simulation");
+    stage.setScene(scene);
+    stage.show();
+    //scene.setCamera(camera);
+  }
+  public static void main(String[] args)
+  {
+    launch(args);
   }
 }
