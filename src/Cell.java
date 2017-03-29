@@ -28,7 +28,7 @@ public class Cell extends Rectangle
   Cell(int x, int y, int growth)
   {
     super(x,y,1,1);
-    setFill(Color.BLACK);
+    setFill(Color.WHITE);
      //this.x = x;
     //this.y = y;
     this.growth = growth;
