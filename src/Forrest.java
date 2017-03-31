@@ -1,5 +1,8 @@
 import javafx.scene.Group;
+import javafx.scene.Node;
 import javafx.scene.paint.Color;
+
+import java.util.Random;
 
 /**
  * Created by Dominic Del Vecchio and Sai Gowthami Bojja on 3/27/2017.
@@ -15,20 +18,29 @@ public class Forrest
   private int count = 0;
   private int sum =0;
   private int growthProb;
+  private int fireDep = 0;
+  private Random rand = new Random();
+  private double size = 2;
   Forrest (int growthProb)
   {
     this.growthProb = growthProb;
+    this.fireDep = fireDep;
     clearForrest();
     
   }
   
+   public void hireFireFighters(int n)
+   {
+     fireDep = fireDep + n;
+   }
+   
   private void clearForrest()
   {
     for(int y=0; y <252; y++)
     {
       for (int x = 0; x < 252; x++)
       {
-        Cell cell = new Cell(x, y, growthProb);
+        Cell cell = new Cell(x, y, growthProb,size,size);
         forrest[y][x] = cell;
         grid.getChildren().add(cell);
         cell.setTranslateY(y);
@@ -45,6 +57,7 @@ public class Forrest
       for(int x=0; x<252; x++)
       {
         forrest[y][x].setStatus(wall);
+        forrest[y][x].setFill(Color.BLACK);
         //System.out.println(forrest[y][x].gety());
         //System.out.println(forrest[y][x].getx());
       }
@@ -54,6 +67,7 @@ public class Forrest
       for (int x=0; x<252; x+=251)
       {
         forrest[y][x].setStatus(wall);
+        forrest[y][x].setFill(Color.BLACK);
       }
     }
   }
@@ -92,6 +106,7 @@ public class Forrest
     
   }
   
+  
   public Cell getCell(int y, int x)
   {
     return forrest[y][x];
@@ -106,16 +121,24 @@ public void simulate()
     {
       if(forrest[y][x].getStatus() ==2)
       {
-        forrest[y][x].setStatus(3);
-        forrest[y][x].setFill(Color.RED);
+        if(fireDep >= rand.nextInt(1000))
+        {
+          forrest[y][x].setStatus(6);
+          forrest[y][x].setFill(Color.BLUE);
+        }
+        else
+        {
+          forrest[y][x].setStatus(3);
+          forrest[y][x].setFill(Color.RED);
+        }
       }
-      else if(forrest[y][x].getStatus() ==4)
+      else if(forrest[y][x].getStatus()==4)
       {
         forrest[y][x].setStatus(0);
         forrest[y][x].setFill(Color.WHITE);
         
       }
-      else if(forrest[y][x].getStatus() ==5)
+      else if(forrest[y][x].getStatus()==5 || forrest[y][x].getStatus()==6)
       {
         forrest[y][x].setStatus(1);
         forrest[y][x].setFill(Color.GREEN);
@@ -128,8 +151,8 @@ public void simulate()
     {
       if(forrest[y][x].getStatus() ==3)
       {
-        setFire(y,x);
-        forrest[y][x].setStatus(4);
+          setFire(y, x);
+          forrest[y][x].setStatus(4);
       }
     }
   }
@@ -143,12 +166,12 @@ public void simulate()
     }
   }
   count++;
-  Data data = new Data(sumGrowth());
   sum = sum + sumGrowth();
   
   if(count == 5000)
   {
     System.out.println(avgGrowth(sum));
+    Data data = new Data(avgGrowth(sum));
     count = 0;
     clearForrest();
     

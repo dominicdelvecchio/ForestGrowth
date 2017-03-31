@@ -31,19 +31,19 @@ public class Main extends Application
   public static int timer = 0;
   public static int count =0;
   //public Group grid = new Group();
-  private Group root = new Group();
+  //private Group root = new Group();
+  BorderPane root = new BorderPane();
   private final PerspectiveCamera camera = new PerspectiveCamera(false);
   final Timeline forestAnimation = new Timeline();
-  private int animationTime = 10;
+  private int animationTime = 60;
   private static final String FILENAME = "E:\\test\\filename.txt";
   @Override
   public void start(Stage stage) throws Exception
   {
     Forrest forest = new Forrest(5);
-    BorderPane game = new BorderPane();
+    //BorderPane game = new BorderPane();
     HBox top = new HBox();
-    top.getPadding();
-    game.setCenter(forest.grid);
+    
     //forest.grid.setLayoutX(250);
     //forest.grid.setLayoutY(250);
     //ScrollBar zoom = new ScrollBar();
@@ -78,10 +78,22 @@ public class Main extends Application
       }
     });
     //top.getChildren().addAll(zoom, R1, R2, R3, R4, random, preset1, preset2, preset3, preset4, start);
+    //root.getChildren().add(forest.grid);
     top.getChildren().add(start);
-    game.setTop(top);
-    root.getChildren().add(game);
-    Scene scene = new Scene(root, 500, 500, Color.ALICEBLUE);
+    //root.getChildren().add(top);
+    //top.getPadding();
+    //game.getPadding();
+    //top.setPrefSize(650,15);
+    //forest.grid.autoSizeChildrenProperty();
+    root.setTop(top);
+    
+    root.setCenter(forest.grid);
+    
+    root.setLeft(null);
+    root.setRight(null);
+    root.setBottom(null);
+    //root.getChildren().add(game);
+    Scene scene = new Scene(root, 504, 529, Color.BLACK);
     //root.setDepthTest(DepthTest.ENABLE);
     stage.setTitle("Forest Growth Simulation");
     stage.setScene(scene);
