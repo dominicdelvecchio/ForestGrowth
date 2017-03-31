@@ -2,7 +2,7 @@ import javafx.scene.Group;
 import javafx.scene.paint.Color;
 
 /**
- * Created by Dominic on 3/27/2017.
+ * Created by Dominic Del Vecchio and Sai Gowthami Bojja on 3/27/2017.
  */
 public class Forrest
 {
@@ -12,19 +12,28 @@ public class Forrest
   private int bioMass;
   private int gridSpace =1;
   public Group grid = new Group();
-  
+  private int count = 0;
+  private int sum =0;
+  private int growthProb;
   Forrest (int growthProb)
+  {
+    this.growthProb = growthProb;
+    clearForrest();
+    
+  }
+  
+  private void clearForrest()
   {
     for(int y=0; y <252; y++)
     {
-      for(int x=0; x <252; x++)
+      for (int x = 0; x < 252; x++)
       {
-        Cell cell = new Cell(x,y,growthProb);
-        forrest [y][x] = cell;
+        Cell cell = new Cell(x, y, growthProb);
+        forrest[y][x] = cell;
         grid.getChildren().add(cell);
         cell.setTranslateY(y);
         cell.setTranslateX(x);
-        
+  
       }
     }
     setWall();
@@ -62,6 +71,10 @@ public class Forrest
       }
     }
     return bioMass;
+  }
+  public double avgGrowth(int sum)
+  {
+    return sum/5000;
   }
   
   public void setFire(int y, int x)
@@ -129,6 +142,19 @@ public void simulate()
       forrest[y][x].lightning();
     }
   }
-  System.out.println(sumGrowth());
+  count++;
+  Data data = new Data(sumGrowth());
+  sum = sum + sumGrowth();
+  
+  if(count == 5000)
+  {
+    System.out.println(avgGrowth(sum));
+    count = 0;
+    clearForrest();
+    
+    
+  };
+  //System.out.println(count);
+  //System.out.println(sumGrowth());
 }
 }

@@ -1,5 +1,5 @@
 /**
- * Created by Dominic on 3/27/2017.
+ * Created by Dominic Del Vecchio and Sai Gowthami Bojja on 3/27/2017.
  */
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;

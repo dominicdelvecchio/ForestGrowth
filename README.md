@@ -1,4 +1,4 @@
 # ForestGrowth
 Authors:
 Dominic Del Vecchio
-Gowthami 
+Sai Gowthami Bojja

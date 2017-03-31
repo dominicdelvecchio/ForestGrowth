@@ -1,3 +1,8 @@
+/*Authors:
+* Dominic Del Vecchio
+* Sai Gowthami Bojja
+*/
+
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
@@ -17,6 +22,9 @@ import javafx.scene.paint.Color;
 import javafx.scene.transform.Rotate;
 import javafx.stage.Stage;
 import javafx.util.Duration;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 
 public class Main extends Application
 {
@@ -26,7 +34,8 @@ public class Main extends Application
   private Group root = new Group();
   private final PerspectiveCamera camera = new PerspectiveCamera(false);
   final Timeline forestAnimation = new Timeline();
-  private int animationTime = 1;
+  private int animationTime = 10;
+  private static final String FILENAME = "E:\\test\\filename.txt";
   @Override
   public void start(Stage stage) throws Exception
   {
@@ -53,7 +62,7 @@ public class Main extends Application
       {
         //Timmeline for the animation portion of the game
       
-        KeyFrame life = new KeyFrame(Duration.seconds(animationTime),
+        KeyFrame life = new KeyFrame(Duration.millis(animationTime),
                 new EventHandler<ActionEvent>()
                 {
                   public void handle(ActionEvent event)
@@ -62,7 +71,7 @@ public class Main extends Application
                   }
                 });
         forestAnimation.getKeyFrames().add(life);
-        forestAnimation.setCycleCount(Animation.INDEFINITE);
+        forestAnimation.setCycleCount(5000);
         forestAnimation.play();
         
         
@@ -79,8 +88,11 @@ public class Main extends Application
     stage.show();
     //scene.setCamera(camera);
   }
+  
   public static void main(String[] args)
   {
+    
     launch(args);
+    
   }
 }
