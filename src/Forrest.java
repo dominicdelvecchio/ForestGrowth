@@ -1,55 +1,66 @@
 import javafx.scene.Group;
-import javafx.scene.Node;
 import javafx.scene.paint.Color;
-
 import java.util.Random;
-
+import static java.lang.Math.abs;
 /**
  * Created by Dominic Del Vecchio and Sai Gowthami Bojja on 3/27/2017.
  */
+//Forrest is the grid. It uses the cell class for each individual tree and controls the
+//majority of the logic for the game.
 public class Forrest
 {
+  //sets the size of the grid with room for a border
   private int forestSize = 252;
   private Cell [][] forrest = new Cell[forestSize][forestSize];
   private int wall = 9;
-  private int bioMass;
-  private int gridSpace =1;
+  private int bioMass1;
+  private int bioMass2;
   public Group grid = new Group();
   private int count = 0;
-  private int sum =0;
-  private int growthProb;
+  private int sumAvg1=0;
+  private int sumAvg2=0;
+  private int growthProb1;
+  private int growthProb2;
   private int fireDep = 0;
   private Random rand = new Random();
   private double size = 2;
-  Forrest (int growthProb)
-  {
-    this.growthProb = growthProb;
-    this.fireDep = fireDep;
-    clearForrest();
-    
-  }
+  double aneal = 0;
+  double anealR;
   
-   public void hireFireFighters(int n)
+  /*
+  Creates a new forest with a growth probability for each species. If doing just
+  one species the probbability for the other species is set to 0. Additionally
+  clears the forest by setting all cells to barren and marks the walls so they
+  will be ignored during updates to the simulation
+  */
+  Forrest (int growthProb1, int growthProb2)
+  {
+    this.growthProb1 = growthProb1;
+    this.growthProb2 = growthProb2;
+    clearForrest();
+  }
+  //incrememnts the number of fire fighters
+  public void hireFireFighters(int n)
    {
      fireDep = fireDep + n;
    }
-   
+  //clears the forrest setting all sells to blank and sets the grid for animation
   private void clearForrest()
   {
     for(int y=0; y <252; y++)
     {
       for (int x = 0; x < 252; x++)
       {
-        Cell cell = new Cell(x, y, growthProb,size,size);
+        Cell cell = new Cell(x, y, growthProb1,growthProb2,size,size);
         forrest[y][x] = cell;
         grid.getChildren().add(cell);
         cell.setTranslateY(y);
         cell.setTranslateX(x);
-  
       }
     }
     setWall();
   }
+  //sets the wall cells so that they will not update but can be used in the checking
   private void setWall()
   {
     for(int y=0; y<252; y+=251)
@@ -58,8 +69,6 @@ public class Forrest
       {
         forrest[y][x].setStatus(wall);
         forrest[y][x].setFill(Color.BLACK);
-        //System.out.println(forrest[y][x].gety());
-        //System.out.println(forrest[y][x].getx());
       }
     }
     for(int y=1; y<251; y++)
@@ -71,24 +80,30 @@ public class Forrest
       }
     }
   }
-  public int sumGrowth()
+  //sums the total biomass each cycle by adding one point for each live cell
+  public void sumGrowth()
   {
-    bioMass = 0;
+    bioMass1 = 0;
+    bioMass2 = 0;
     for(int y=0; y<252; y++)
     {
       for(int x=0; x<252; x++)
       {
         if(forrest[y][x].getStatus() == 1)
         {
-          bioMass++;
+          if(forrest[y][x].getSpecies() ==1)
+          {
+            bioMass1++;
+          }
+          else bioMass2++;
         }
       }
     }
-    return bioMass;
   }
+  //commputes the average biomass for every cycle
   public double avgGrowth(int sum)
   {
-    return sum/5000;
+    return sum/count;
   }
   
   public void setFire(int y, int x)
@@ -103,18 +118,26 @@ public class Forrest
         }
       }
     }
-    
   }
-  
-  
-  public Cell getCell(int y, int x)
-  {
-    return forrest[y][x];
-  }
-
-
+// main logic for the game. Cycles through and sets the cells for animation,
+//calls functions to set fires and grow cells depending on the cell status
 public void simulate()
 {
+  /*first loop checks for cells that are in a phase change and sets them to the
+  phase they are chnaging to by changing the status of the cell and the color fill.
+  The animation and logic are handled in three different loops. The first handles
+  any cells in a transition state. Cells iin a transition state are not effected by
+  the logic checking for growth or fires. During the first loop they are updated into
+  barren, life or fire status which makes them available to be checked by the logic.
+  The second looks for fire cells and seets any alive cells in moores nighborhood
+  on fire. The final loop checks for growth and random lighting strikes. Both of the final
+  two loops set cells into transiton states.
+  
+  Finally the biomass of each species is summed and averaged and the a check is done to determinne
+  if it is time to start a new cycle.
+  */
+  
+  //loop to set transtion state from transiton to current states
   for(int y=1; y<251; y++)
   {
     for(int x=1; x<251; x++)
@@ -141,10 +164,13 @@ public void simulate()
       else if(forrest[y][x].getStatus()==5 || forrest[y][x].getStatus()==6)
       {
         forrest[y][x].setStatus(1);
-        forrest[y][x].setFill(Color.GREEN);
+        if(forrest[y][x].getSpecies() == 1) forrest[y][x].setFill(Color.LIMEGREEN);
+        else forrest[y][x].setFill(Color.DARKGREEN);
       }
     }
   }
+  //loop the fire portion of the logic. Any cells on fire will set fire to other
+  //living cells near by.
   for(int y=1; y<251; y++)
   {
     for(int x=1; x<251; x++)
@@ -156,26 +182,36 @@ public void simulate()
       }
     }
   }
-  
+  //logic portion that drives the random growth and random lighting stirkes
   for(int y=1; y<251; y++)
   {
     for(int x=1; x<251; x++)
     {
-      forrest[y][x].growTree();
+      forrest[y][x].growTree1();
+      //forrest[y][x].growTree2();
       forrest[y][x].lightning();
     }
   }
   count++;
-  sum = sum + sumGrowth();
+  sumGrowth();
+  aneal = abs(aneal-bioMass1);
+  sumAvg1 = sumAvg1 + bioMass1;
+  sumAvg2 = sumAvg2 + bioMass2;
+  //System.out.println("BioMass 1 = " + bioMass1);
+  //System.out.println("BioMass 2 = " + bioMass2);
+  /*if(sumGrowth() <=1000 && count > 2)
+  {
+    System.out.println("Death");
+    System.out.println(count);
+  }*/
   
   if(count == 5000)
   {
-    System.out.println(avgGrowth(sum));
-    Data data = new Data(avgGrowth(sum));
+    System.out.println(avgGrowth(bioMass1));
+    Data data = new Data(avgGrowth(bioMass1));
+    //Data data = new Data(avgGrowth(bioMass2));
     count = 0;
     clearForrest();
-    
-    
   };
   //System.out.println(count);
   //System.out.println(sumGrowth());

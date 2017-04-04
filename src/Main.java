@@ -2,57 +2,38 @@
 * Dominic Del Vecchio
 * Sai Gowthami Bojja
 */
-
-import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
-import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
-import javafx.scene.DepthTest;
-import javafx.scene.Group;
 import javafx.scene.PerspectiveCamera;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.ScrollBar;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.paint.Color;
-import javafx.scene.transform.Rotate;
 import javafx.stage.Stage;
 import javafx.util.Duration;
-import java.io.BufferedWriter;
-import java.io.FileWriter;
-import java.io.IOException;
+
+/*
+Main exectures the animation loop, sets the stage and calls all of the functions for the simulation
+*/
 
 public class Main extends Application
 {
-  public static int timer = 0;
-  public static int count =0;
-  //public Group grid = new Group();
-  //private Group root = new Group();
+  
   BorderPane root = new BorderPane();
-  private final PerspectiveCamera camera = new PerspectiveCamera(false);
   final Timeline forestAnimation = new Timeline();
+  //animation time sets the number of frames per second of the animation
   private int animationTime = 60;
-  private static final String FILENAME = "E:\\test\\filename.txt";
+  //Sets the animmation stage, panes, timeline for animation and buttons
   @Override
   public void start(Stage stage) throws Exception
   {
-    Forrest forest = new Forrest(5);
-    //BorderPane game = new BorderPane();
+    //Calls a new forest into instantiation and sets the grid
+    Forrest forest = new Forrest(10,3);
     HBox top = new HBox();
-    
-    //forest.grid.setLayoutX(250);
-    //forest.grid.setLayoutY(250);
-    //ScrollBar zoom = new ScrollBar();
-    //zoom.setMin(0);
-    //zoom.setMax(3);
-    //zoom.setBlockIncrement(.05);
-    //zoom.setUnitIncrement(.05);
-    //forest.grid.scaleZProperty().bind(zoom.valueProperty());
-    //Button to start game after selections have been made
     Button start = new Button();
     start.setText("START");
     start.setOnAction(new EventHandler<ActionEvent>()
@@ -73,38 +54,23 @@ public class Main extends Application
         forestAnimation.getKeyFrames().add(life);
         forestAnimation.setCycleCount(5000);
         forestAnimation.play();
-        
-        
       }
     });
     //top.getChildren().addAll(zoom, R1, R2, R3, R4, random, preset1, preset2, preset3, preset4, start);
-    //root.getChildren().add(forest.grid);
     top.getChildren().add(start);
-    //root.getChildren().add(top);
-    //top.getPadding();
-    //game.getPadding();
-    //top.setPrefSize(650,15);
-    //forest.grid.autoSizeChildrenProperty();
     root.setTop(top);
-    
     root.setCenter(forest.grid);
-    
     root.setLeft(null);
     root.setRight(null);
     root.setBottom(null);
-    //root.getChildren().add(game);
     Scene scene = new Scene(root, 504, 529, Color.BLACK);
-    //root.setDepthTest(DepthTest.ENABLE);
     stage.setTitle("Forest Growth Simulation");
     stage.setScene(scene);
     stage.show();
-    //scene.setCamera(camera);
   }
   
   public static void main(String[] args)
   {
-    
     launch(args);
-    
   }
 }
