@@ -2,6 +2,7 @@
 * Dominic Del Vecchio
 * Sai Gowthami Bojja
 */
+import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.application.Application;
@@ -32,7 +33,7 @@ public class Main extends Application
   public void start(Stage stage) throws Exception
   {
     //Calls a new forest into instantiation and sets the grid
-    Forrest forest = new Forrest(10,3);
+    Forrest forest = new Forrest(50,0);
     HBox top = new HBox();
     Button start = new Button();
     start.setText("START");
@@ -48,11 +49,15 @@ public class Main extends Application
                 {
                   public void handle(ActionEvent event)
                   {
-                    forest.simulate();
+                    if(forest.getCycle() <= 20)
+                    {
+                      forest.simulate();
+                    }
+                    else forestAnimation.stop();
                   }
                 });
         forestAnimation.getKeyFrames().add(life);
-        forestAnimation.setCycleCount(5000);
+        forestAnimation.setCycleCount(Animation.INDEFINITE);
         forestAnimation.play();
       }
     });

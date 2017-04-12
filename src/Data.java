@@ -6,10 +6,11 @@ import java.io.*;
  */
 public class Data
 {
-  private static final String FILENAME = "C:\\Users\\Dominic\\IdeaProjects\\Forrest Growth\\src\\test.txt";
+  private String FILENAME;
     
-    public Data(int data)
+    public Data(double data, String filename)
     {
+      this.FILENAME = filename;
       try (BufferedWriter bw = new BufferedWriter(new FileWriter(FILENAME,true)))
       {
   
@@ -23,8 +24,9 @@ public class Data
   
     }
   
-  public Data(double data)
+  public Data(int data, String filename)
   {
+    this.FILENAME = filename;
     try (BufferedWriter bw = new BufferedWriter(new FileWriter(FILENAME,true)))
     {
       

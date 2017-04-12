@@ -24,9 +24,8 @@ public class Forrest
   private int fireDep = 0;
   private Random rand = new Random();
   private double size = 2;
-  double aneal = 0;
-  double anealR;
-  
+  private int longevity = 3125;
+  private int cycle =1;
   /*
   Creates a new forest with a growth probability for each species. If doing just
   one species the probbability for the other species is set to 0. Additionally
@@ -44,6 +43,8 @@ public class Forrest
    {
      fireDep = fireDep + n;
    }
+  //gets cycle count from main so program can be cut after runs are finished
+  public int getCycle() {return cycle;}
   //clears the forrest setting all sells to blank and sets the grid for animation
   private void clearForrest()
   {
@@ -105,7 +106,7 @@ public class Forrest
   {
     return sum/count;
   }
-  
+  //sets fire to neighbooring cells
   public void setFire(int y, int x)
   {
     for(int i=y-1; i<y+2; i++)
@@ -115,6 +116,7 @@ public class Forrest
         if(forrest[i][j].getStatus()==1)
         {
           forrest[i][j].setStatus(2);
+          //setFire(i,j);
         }
       }
     }
@@ -194,26 +196,26 @@ public void simulate()
   }
   count++;
   sumGrowth();
-  aneal = abs(aneal-bioMass1);
   sumAvg1 = sumAvg1 + bioMass1;
   sumAvg2 = sumAvg2 + bioMass2;
-  //System.out.println("BioMass 1 = " + bioMass1);
-  //System.out.println("BioMass 2 = " + bioMass2);
-  /*if(sumGrowth() <=1000 && count > 2)
+  if(count > 250)
   {
-    System.out.println("Death");
-    System.out.println(count);
-  }*/
-  
-  if(count == 5000)
-  {
-    System.out.println(avgGrowth(bioMass1));
-    Data data = new Data(avgGrowth(bioMass1));
-    //Data data = new Data(avgGrowth(bioMass2));
-    count = 0;
-    clearForrest();
-  };
+    if (count >= 2500 || bioMass1 <= longevity)
+    {
+      double d = 1000;
+      Data data1 = new Data(avgGrowth(sumAvg1), "C:\\Users\\Dominic\\IdeaProjects\\Forrest Growth\\src\\GA_Rates%5");
+      Data data2 = new Data(count, "C:\\Users\\Dominic\\IdeaProjects\\Forrest Growth\\src\\Longevity_Rates%5.txt");
+      System.out.println("Cycle count = " + cycle +"     GrowthProbability = " + growthProb1/d);
+      System.out.println("Biomass = " + avgGrowth(sumAvg1));
+      System.out.println("Longevity = " + count);
+      clearForrest();
+      count = 0;
+      sumAvg1 = 0;
+      growthProb1 = growthProb1 + 50;
+      cycle ++;
+    }
+  }
   //System.out.println(count);
-  //System.out.println(sumGrowth());
+  //System.out.println(bioMass1);
 }
 }

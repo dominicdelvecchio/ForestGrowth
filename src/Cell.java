@@ -82,10 +82,10 @@ public class Cell extends Rectangle
   //function for random lightning strikes
   public void lightning()
   {
-    if(status ==1 || status==8)
+    if(status ==1)
     {
-      fire = rand.nextInt(1000) + 1;
-      if (fire <= 1) this.status = 2;
+      fire = rand.nextInt(10000) + 1;
+      if (fire <= 10) this.status = 2;
     }
   }
   //function to check the cells status
