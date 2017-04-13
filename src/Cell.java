@@ -84,8 +84,8 @@ public class Cell extends Rectangle
   {
     if(status ==1)
     {
-      fire = rand.nextInt(10000) + 1;
-      if (fire <= 10) this.status = 2;
+      fire = rand.nextInt(1000) + 1;
+      if (fire <= 1) this.status = 2;
     }
   }
   //function to check the cells status

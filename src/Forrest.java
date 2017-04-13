@@ -204,7 +204,7 @@ public void simulate()
     {
       double d = 1000;
       Data data1 = new Data(avgGrowth(sumAvg1), "C:\\Users\\Dominic\\IdeaProjects\\Forrest Growth\\src\\GA_Rates%5");
-      Data data2 = new Data(count, "C:\\Users\\Dominic\\IdeaProjects\\Forrest Growth\\src\\Longevity_Rates%5.txt");
+      Data data2 = new Data(count, "C:\\Users\\Dominic\\IdeaProjects\\Forrest Growth\\src\\Longevity_Rates.txt");
       System.out.println("Cycle count = " + cycle +"     GrowthProbability = " + growthProb1/d);
       System.out.println("Biomass = " + avgGrowth(sumAvg1));
       System.out.println("Longevity = " + count);
