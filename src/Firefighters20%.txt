@@ -1,0 +1,63 @@
+Growth rate of 20% ran with firefighters
+
+7327.0
+7652.0
+8159.0
+8700.0
+9414.0
+10256.0
+11273.0
+12511.0
+14136.0
+16179.0
+18830.0
+22547.0
+27690.0
+35758.0
+48430.0
+58027.0
+60756.0
+61550.0
+61831.0
+61981.0
+
+Cycle count = 1     GrowthProbability = 0.2
+Biomass = 7327.0Longevity = 1000Fire Department = 0
+Cycle count = 2     GrowthProbability = 0.2
+Biomass = 7652.0Longevity = 1000Fire Department = 50
+Cycle count = 3     GrowthProbability = 0.2
+Biomass = 8159.0Longevity = 1000Fire Department = 100
+Cycle count = 4     GrowthProbability = 0.2
+Biomass = 8700.0Longevity = 1000Fire Department = 150
+Cycle count = 5     GrowthProbability = 0.2
+Biomass = 9414.0Longevity = 1000Fire Department = 200
+Cycle count = 6     GrowthProbability = 0.2
+Biomass = 10256.0Longevity = 1000Fire Department = 250
+Cycle count = 7     GrowthProbability = 0.2
+Biomass = 11273.0Longevity = 1000Fire Department = 300
+Cycle count = 8     GrowthProbability = 0.2
+Biomass = 12511.0Longevity = 1000Fire Department = 350
+Cycle count = 9     GrowthProbability = 0.2
+Biomass = 14136.0Longevity = 1000Fire Department = 400
+Cycle count = 10     GrowthProbability = 0.2
+Biomass = 16179.0Longevity = 1000Fire Department = 450
+Cycle count = 11     GrowthProbability = 0.2
+Biomass = 18830.0Longevity = 1000Fire Department = 500
+Cycle count = 12     GrowthProbability = 0.2
+Biomass = 22547.0Longevity = 1000Fire Department = 550
+Cycle count = 13     GrowthProbability = 0.2
+Biomass = 27690.0Longevity = 1000Fire Department = 600
+Cycle count = 14     GrowthProbability = 0.2
+Biomass = 35758.0Longevity = 1000Fire Department = 650
+Cycle count = 15     GrowthProbability = 0.2
+Biomass = 48430.0Longevity = 1000Fire Department = 700
+Cycle count = 16     GrowthProbability = 0.2
+Biomass = 58027.0Longevity = 1000Fire Department = 750
+Cycle count = 17     GrowthProbability = 0.2
+Biomass = 60756.0Longevity = 1000Fire Department = 800
+Cycle count = 18     GrowthProbability = 0.2
+Biomass = 61550.0Longevity = 1000Fire Department = 850
+Cycle count = 19     GrowthProbability = 0.2
+Biomass = 61831.0Longevity = 1000Fire Department = 900
+Cycle count = 20     GrowthProbability = 0.2
+Biomass = 61981.0Longevity = 1000Fire Department = 950
