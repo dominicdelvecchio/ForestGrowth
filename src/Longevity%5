@@ -1,60 +1,60 @@
 Cycle count = 1     GrowthProbability = 0.05
-Biomass = 14488.0
-Longevity = 2500
+Biomass = 14610.0
+Longevity = 1000
 Cycle count = 2     GrowthProbability = 0.1
-Biomass = 14527.0
-Longevity = 2500
+Biomass = 14584.0
+Longevity = 1000
 Cycle count = 3     GrowthProbability = 0.15
-Biomass = 11553.0
-Longevity = 2500
+Biomass = 11669.0
+Longevity = 1000
 Cycle count = 4     GrowthProbability = 0.2
-Biomass = 8944.0
-Longevity = 2500
+Biomass = 9127.0
+Longevity = 1000
 Cycle count = 5     GrowthProbability = 0.25
-Biomass = 7105.0
-Longevity = 2500
+Biomass = 7318.0
+Longevity = 1000
 Cycle count = 6     GrowthProbability = 0.3
-Biomass = 5774.0
-Longevity = 2500
+Biomass = 6035.0
+Longevity = 1000
 Cycle count = 7     GrowthProbability = 0.35
-Biomass = 4797.0
-Longevity = 2500
+Biomass = 5085.0
+Longevity = 1000
 Cycle count = 8     GrowthProbability = 0.4
-Biomass = 4060.0
-Longevity = 2500
+Biomass = 4350.0
+Longevity = 1000
 Cycle count = 9     GrowthProbability = 0.45
-Biomass = 5205.0
-Longevity = 269
+Biomass = 3822.0
+Longevity = 49
 Cycle count = 10     GrowthProbability = 0.5
-Biomass = 5046.0
-Longevity = 251
+Biomass = 3370.0
+Longevity = 31
 Cycle count = 11     GrowthProbability = 0.55
-Biomass = 4753.0
-Longevity = 251
+Biomass = 3038.0
+Longevity = 30
 Cycle count = 12     GrowthProbability = 0.6
-Biomass = 4661.0
-Longevity = 251
+Biomass = 2732.0
+Longevity = 31
 Cycle count = 13     GrowthProbability = 0.65
-Biomass = 4479.0
-Longevity = 251
+Biomass = 2535.0
+Longevity = 30
 Cycle count = 14     GrowthProbability = 0.7
-Biomass = 4551.0
-Longevity = 251
+Biomass = 2276.0
+Longevity = 29
 Cycle count = 15     GrowthProbability = 0.75
-Biomass = 4390.0
-Longevity = 251
+Biomass = 2090.0
+Longevity = 30
 Cycle count = 16     GrowthProbability = 0.8
-Biomass = 4447.0
-Longevity = 251
+Biomass = 1925.0
+Longevity = 31
 Cycle count = 17     GrowthProbability = 0.85
-Biomass = 4420.0
-Longevity = 251
+Biomass = 1804.0
+Longevity = 34
 Cycle count = 18     GrowthProbability = 0.9
-Biomass = 4567.0
-Longevity = 251
+Biomass = 1622.0
+Longevity = 33
 Cycle count = 19     GrowthProbability = 0.95
-Biomass = 4353.0
-Longevity = 251
+Biomass = 1498.0
+Longevity = 36
 Cycle count = 20     GrowthProbability = 1.0
-Biomass = 4376.0
-Longevity = 251
+Biomass = 1309.0
+Longevity = 37

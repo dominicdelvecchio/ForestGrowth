@@ -24,7 +24,9 @@ public class Forrest
   private int fireDep = 0;
   private Random rand = new Random();
   private double size = 2;
-  private int longevity = 3125;
+  private int death = 3125;
+  private int deathFlag =0;
+  private int longevity =0;
   private int cycle =1;
   /*
   Creates a new forest with a growth probability for each species. If doing just
@@ -198,21 +200,37 @@ public void simulate()
   sumGrowth();
   sumAvg1 = sumAvg1 + bioMass1;
   sumAvg2 = sumAvg2 + bioMass2;
-  if(count > 250)
+  if(count > 10)
   {
-    if (count >= 2500 || bioMass1 <= longevity)
+    if(deathFlag == 0 && (bioMass1 <= death))
     {
-      double d = 1000;
-      Data data1 = new Data(avgGrowth(sumAvg1), "C:\\Users\\Dominic\\IdeaProjects\\Forrest Growth\\src\\GA_Rates%5");
-      Data data2 = new Data(count, "C:\\Users\\Dominic\\IdeaProjects\\Forrest Growth\\src\\Longevity_Rates.txt");
-      System.out.println("Cycle count = " + cycle +"     GrowthProbability = " + growthProb1/d);
-      System.out.println("Biomass = " + avgGrowth(sumAvg1));
-      System.out.println("Longevity = " + count);
-      clearForrest();
-      count = 0;
-      sumAvg1 = 0;
-      growthProb1 = growthProb1 + 50;
-      cycle ++;
+      deathFlag =1;
+      longevity = count;
+    }
+  }
+  {
+    if (count > 10)
+    {
+      if (count >= 1000 || bioMass1 <= longevity)
+      {
+        double d = 1000;
+        Data data1 = new Data(avgGrowth(sumAvg1), "C:\\Users\\Dominic\\IdeaProjects\\Forrest Growth\\src\\GA_Rates%5");
+        Data data2 = new Data(longevity, "C:\\Users\\Dominic\\IdeaProjects\\Forrest Growth\\src\\Longevity_Rates%5.txt");
+        System.out.println("Cycle count = " + cycle + "     GrowthProbability = " + growthProb1 / d);
+        System.out.println("Biomass = " + avgGrowth(sumAvg1));
+        if (deathFlag == 0)
+        {
+          longevity = count;
+        }
+        deathFlag = 0;
+        System.out.println("Longevity = " + longevity);
+        clearForrest();
+        count = 0;
+        sumAvg1 = 0;
+        longevity = 0;
+        //growthProb1 = growthProb1 + 50;
+        cycle++;
+      }
     }
   }
   //System.out.println(count);
