@@ -193,6 +193,7 @@ public void simulate()
     {
       forrest[y][x].growTree1();
       //forrest[y][x].growTree2();
+      
       forrest[y][x].lightning();
     }
   }
@@ -213,22 +214,23 @@ public void simulate()
     {
       if (count >= 1000 || bioMass1 <= longevity)
       {
-        double d = 1000;
-        Data data1 = new Data(avgGrowth(sumAvg1), "C:\\Users\\Dominic\\IdeaProjects\\Forrest Growth\\src\\GA_Rates%5");
-        Data data2 = new Data(longevity, "C:\\Users\\Dominic\\IdeaProjects\\Forrest Growth\\src\\Longevity_Rates%5.txt");
-        System.out.println("Cycle count = " + cycle + "     GrowthProbability = " + growthProb1 / d);
-        System.out.println("Biomass = " + avgGrowth(sumAvg1));
         if (deathFlag == 0)
         {
           longevity = count;
         }
+        double d = 1000;
+        Data data1 = new Data(avgGrowth(sumAvg1), "C:\\Users\\Dominic\\IdeaProjects\\Forrest Growth\\src\\GA_Rate_1.0%_2ndAlgorithm_Step");
+        //Data data2 = new Data(longevity, "C:\\Users\\Dominic\\IdeaProjects\\Forrest Growth\\src\\GA_Longevity_Low.txt");
+        System.out.println("Cycle count = " + cycle + "     GrowthProbability = " + growthProb1 / d);
+        System.out.println("Biomass =    " + avgGrowth(sumAvg1) + "   Longevity = " + longevity + "   Fire Department = " + fireDep);
         deathFlag = 0;
-        System.out.println("Longevity = " + longevity);
+        //System.out.println("Longevity = " + longevity);
         clearForrest();
         count = 0;
         sumAvg1 = 0;
         longevity = 0;
         //growthProb1 = growthProb1 + 50;
+        //fireDep = fireDep +50;
         cycle++;
       }
     }

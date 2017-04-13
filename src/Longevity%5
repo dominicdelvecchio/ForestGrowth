@@ -1,3 +1,6 @@
+Longevity set for 5% of the forest. When the forest is down to 5% or less it is considered dead and its longevity is recorded. Growth probability incremented by 5% every step
+
+
 Cycle count = 1     GrowthProbability = 0.05
 Biomass = 14610.0
 Longevity = 1000

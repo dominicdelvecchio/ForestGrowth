@@ -1,0 +1,64 @@
+Growth rate of 75% ran with fire fighters
+
+1978.0
+1943.0
+1950.0
+2322.0
+2736.0
+3270.0
+3894.0
+4714.0
+5701.0
+6968.0
+8690.0
+10884.0
+13925.0
+18397.0
+25554.0
+38745.0
+57273.0
+61131.0
+61856.0
+62110.0
+62228.0
+
+Cycle count = 1     GrowthProbability = 0.75
+Biomass =    1943.0   Longevity = 34   Fire Department = 0
+Cycle count = 2     GrowthProbability = 0.75
+Biomass =    1950.0   Longevity = 18   Fire Department = 50
+Cycle count = 3     GrowthProbability = 0.75
+Biomass =    2322.0   Longevity = 18   Fire Department = 100
+Cycle count = 4     GrowthProbability = 0.75
+Biomass =    2736.0   Longevity = 18   Fire Department = 150
+Cycle count = 5     GrowthProbability = 0.75
+Biomass =    3270.0   Longevity = 20   Fire Department = 200
+Cycle count = 6     GrowthProbability = 0.75
+Biomass =    3894.0   Longevity = 178   Fire Department = 250
+Cycle count = 7     GrowthProbability = 0.75
+Biomass =    4714.0   Longevity = 1000   Fire Department = 300
+Cycle count = 8     GrowthProbability = 0.75
+Biomass =    5701.0   Longevity = 1000   Fire Department = 350
+Cycle count = 9     GrowthProbability = 0.75
+Biomass =    6968.0   Longevity = 1000   Fire Department = 400
+Cycle count = 10     GrowthProbability = 0.75
+Biomass =    8690.0   Longevity = 1000   Fire Department = 450
+Cycle count = 11     GrowthProbability = 0.75
+Biomass =    10884.0   Longevity = 1000   Fire Department = 500
+Cycle count = 12     GrowthProbability = 0.75
+Biomass =    13925.0   Longevity = 1000   Fire Department = 550
+Cycle count = 13     GrowthProbability = 0.75
+Biomass =    18397.0   Longevity = 1000   Fire Department = 600
+Cycle count = 14     GrowthProbability = 0.75
+Biomass =    25554.0   Longevity = 1000   Fire Department = 650
+Cycle count = 15     GrowthProbability = 0.75
+Biomass =    38745.0   Longevity = 1000   Fire Department = 700
+Cycle count = 16     GrowthProbability = 0.75
+Biomass =    57273.0   Longevity = 1000   Fire Department = 750
+Cycle count = 17     GrowthProbability = 0.75
+Biomass =    61131.0   Longevity = 1000   Fire Department = 800
+Cycle count = 18     GrowthProbability = 0.75
+Biomass =    61856.0   Longevity = 1000   Fire Department = 850
+Cycle count = 19     GrowthProbability = 0.75
+Biomass =    62110.0   Longevity = 1000   Fire Department = 900
+Cycle count = 20     GrowthProbability = 0.75
+Biomass =    62228.0   Longevity = 1000   Fire Department = 950
