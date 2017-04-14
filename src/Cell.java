@@ -8,18 +8,18 @@ import java.util.Random;
 * each cell can grow a tree, catch fire or be put out by a fire fighter*/
 public class Cell extends Rectangle
 {
+  //growth propability for species 1
   private int growth1;
+  //growth probabilty for species 2
   private int growth2;
   private int status = 0;
   private Random rand = new Random();
+  //set as the random variable to check if the cells will grow by rand
   private int grow;
+  //set as random vriable to check if cells will catch fire by rand
   private int fire;
-  private int hSize = 3;
-  private int wSize = 5;
-  private int gorwthCount;
   private int species;
   //1=species 1 and 2=species2
-  private int fireCount;
   /*
   * Values for the current status of the cell
   * some are transitional so that cells in the same
