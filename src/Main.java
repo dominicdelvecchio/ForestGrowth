@@ -8,7 +8,6 @@ import javafx.animation.Timeline;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
-import javafx.scene.PerspectiveCamera;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.BorderPane;
@@ -32,7 +31,7 @@ public class Main extends Application
   @Override
   public void start(Stage stage) throws Exception
   {
-    //Calls a new forest into instantiation and sets the grid
+    //Calls a new forest into instantiation and sets the grid along with growth rates for both species
     Forrest forest = new Forrest(20,0);
     HBox top = new HBox();
     Button start = new Button();
@@ -61,7 +60,7 @@ public class Main extends Application
         forestAnimation.play();
       }
     });
-    //top.getChildren().addAll(zoom, R1, R2, R3, R4, random, preset1, preset2, preset3, preset4, start);
+    //continuation of stage setting
     top.getChildren().add(start);
     root.setTop(top);
     root.setCenter(forest.grid);

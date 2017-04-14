@@ -47,7 +47,7 @@ public class Cell extends Rectangle
     this.growth1 = growth1;
     this.growth2 = growth2;
   }
-  //function fro tree growth one species
+  //function for tree growth one species
   public void growTree1()
   {
     if(status == 0)

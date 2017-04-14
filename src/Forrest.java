@@ -12,25 +12,38 @@ public class Forrest
   //sets the size of the grid with room for a border
   private int forestSize = 252;
   private Cell [][] forrest = new Cell[forestSize][forestSize];
+  //sets the cells status to wall so it will not be updated
+  //this makes for easier array loops that can still run a check without going out of bounds
   private int wall = 9;
+  //biomass for species one
   private int bioMass1;
+  //biomass for species two
   private int bioMass2;
   public Group grid = new Group();
   private int count = 0;
+  //sum of the biomass for the cycle for species one
   private int sumAvg1=0;
+  //sum of the biomass for the cycle for species two
   private int sumAvg2=0;
+  //growth probability for species one set by forest constructor
   private int growthProb1;
+  //growth probability for species two set by forest constructor
   private int growthProb2;
+  //number of firefighters present set initially to zero. Will only work if fire fighters are added
   private int fireDep = 0;
   private Random rand = new Random();
   private double size = 2;
+  //death marker for longevity representing 5% of the forest
   private int death = 3125;
+  //flag for if the forest dies
   private int deathFlag =0;
+  //number of cycles that the forest has survived
   private int longevity =0;
+  //number of complete cycles
   private int cycle =1;
   /*
   Creates a new forest with a growth probability for each species. If doing just
-  one species the probbability for the other species is set to 0. Additionally
+  one species the probability for the other species is set to 0. Additionally
   clears the forest by setting all cells to barren and marks the walls so they
   will be ignored during updates to the simulation
   */
@@ -40,14 +53,10 @@ public class Forrest
     this.growthProb2 = growthProb2;
     clearForrest();
   }
-  //incrememnts the number of fire fighters
-  public void hireFireFighters(int n)
-   {
-     fireDep = fireDep + n;
-   }
+ 
   //gets cycle count from main so program can be cut after runs are finished
   public int getCycle() {return cycle;}
-  //clears the forrest setting all sells to blank and sets the grid for animation
+  //clears the forrest setting all cells to blank and sets the grid for animation
   private void clearForrest()
   {
     for(int y=0; y <252; y++)
@@ -84,6 +93,7 @@ public class Forrest
     }
   }
   //sums the total biomass each cycle by adding one point for each live cell
+  //works for one or two species
   public void sumGrowth()
   {
     bioMass1 = 0;
@@ -197,10 +207,13 @@ public void simulate()
       forrest[y][x].lightning();
     }
   }
+  //portion of code to sum the running biomass
   count++;
   sumGrowth();
   sumAvg1 = sumAvg1 + bioMass1;
   sumAvg2 = sumAvg2 + bioMass2;
+  //checks for premature death of the forest and sets the longevity to the time step(count)
+  //if the forest dips below 5% once set the program will continue to run
   if(count > 10)
   {
     if(deathFlag == 0 && (bioMass1 <= death))
@@ -210,7 +223,8 @@ public void simulate()
     }
   }
   
-    
+    //stops program at a count of 1000 timesteps and resets the board for a new cycle
+    //if the forest has not dipped below 5% sets the longevity for the length of the program
       if (count >= 1000)
       {
         if (deathFlag == 0)
@@ -218,7 +232,12 @@ public void simulate()
           longevity = count;
         }
         double d = 1000;
-        Data data1 = new Data(avgGrowth(sumAvg1), "C:\\Users\\Dominic\\IdeaProjects\\Forrest Growth\\src\\Firefighters2.5%.txt");
+        /*
+        various print statments and calls to data for recording results
+        most are commented out
+        */
+        
+        //Data data1 = new Data(avgGrowth(sumAvg1), "C:\\Users\\Dominic\\IdeaProjects\\Forrest Growth\\src\\Firefighters2.5%.txt");
         //Data data2 = new Data(avgGrowth(sumAvg2), "C:\\Users\\Dominic\\IdeaProjects\\Forrest Growth\\src\\species2.txt");
         //System.out.println(" Species1 Cycle count = " + cycle + "     GrowthProbability1 = " + growthProb1 / d + "    Biomass =    " + avgGrowth(sumAvg1));
         //System.out.println(" Species2 Cycle count = " + cycle + "     GrowthProbability2 = " + growthProb2 / d + "    Biomass =    " + avgGrowth(sumAvg2));
