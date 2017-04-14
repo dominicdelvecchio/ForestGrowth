@@ -33,7 +33,7 @@ public class Main extends Application
   public void start(Stage stage) throws Exception
   {
     //Calls a new forest into instantiation and sets the grid
-    Forrest forest = new Forrest(25,25);
+    Forrest forest = new Forrest(20,0);
     HBox top = new HBox();
     Button start = new Button();
     start.setText("START");

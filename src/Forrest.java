@@ -191,8 +191,8 @@ public void simulate()
   {
     for(int x=1; x<251; x++)
     {
-      //forrest[y][x].growTree1();
-      forrest[y][x].growTree2();
+      forrest[y][x].growTree1();
+      //forrest[y][x].growTree2();
       
       forrest[y][x].lightning();
     }
@@ -218,12 +218,12 @@ public void simulate()
           longevity = count;
         }
         double d = 1000;
-        Data data1 = new Data(avgGrowth(sumAvg1), "C:\\Users\\Dominic\\IdeaProjects\\Forrest Growth\\src\\species1.txt");
-        Data data2 = new Data(avgGrowth(sumAvg2), "C:\\Users\\Dominic\\IdeaProjects\\Forrest Growth\\src\\species2.txt");
-        System.out.println(" Species1 Cycle count = " + cycle + "     GrowthProbability1 = " + growthProb1 / d + "    Biomass =    " + avgGrowth(sumAvg1));
-        System.out.println(" Species2 Cycle count = " + cycle + "     GrowthProbability2 = " + growthProb2 / d + "    Biomass =    " + avgGrowth(sumAvg2));
+        Data data1 = new Data(avgGrowth(sumAvg1), "C:\\Users\\Dominic\\IdeaProjects\\Forrest Growth\\src\\Firefighters2.5%.txt");
+        //Data data2 = new Data(avgGrowth(sumAvg2), "C:\\Users\\Dominic\\IdeaProjects\\Forrest Growth\\src\\species2.txt");
+        //System.out.println(" Species1 Cycle count = " + cycle + "     GrowthProbability1 = " + growthProb1 / d + "    Biomass =    " + avgGrowth(sumAvg1));
+        //System.out.println(" Species2 Cycle count = " + cycle + "     GrowthProbability2 = " + growthProb2 / d + "    Biomass =    " + avgGrowth(sumAvg2));
         //System.out.println("Count = " + count);
-        //System.out.println("Biomass =    " + avgGrowth(sumAvg1) + "   Longevity = " + longevity + "   Fire Department = " + fireDep);
+        System.out.println("Biomass =    " + avgGrowth(sumAvg1) + "   Longevity = " + longevity);
         deathFlag = 0;
         //System.out.println("Longevity = " + longevity);
         clearForrest();
@@ -231,8 +231,8 @@ public void simulate()
         sumAvg1 = 0;
         sumAvg2 = 0;
         longevity = 0;
-        growthProb1 = growthProb1 + 50;
-        growthProb2 = growthProb2 + 50;
+        //growthProb1 = growthProb1 + 50;
+        //growthProb2 = growthProb2 + 50;
         //fireDep = fireDep +50;
         cycle++;
       }
