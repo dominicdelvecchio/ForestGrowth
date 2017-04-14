@@ -4,7 +4,14 @@ Dominic Del Vecchio
 Sai Gowthami Bojja
 
 Program is run form main. After the program is run press start on the board. program will stop after 20 cycles of 
-1000 timesteps
+1000 timesteps.
+
+All of the .txt files are our data and are not part of the program. Our program consits of Main which instantiates the 
+Forrest class and handles the animation.
+The Forrest class holds the majority of the logic for the simulation loop and contains the grid which houses the cells. 
+The Cell class also contain some of the logic that works on individual cells and extends rectangle for animation.
+The Data class is a buffered writer for wrtiting data.
+
 
 Line 35 in Main calls the forest constructor and can be used to change the growth rates for both species
 it is currentley set to 2% as the probability function calls numbers in the range of 1-1000, so 20 == 2%
@@ -20,5 +27,6 @@ zero to the desired amount by changin the number in fireDep on line 33 of Forres
 
 Also uncommenting line 253 in Forrest will cause the growth rate to increment by 5% every cycle of 1000 timesteps.
 Line 254 will do the same for species 2 but as mention above growTree2 must be uncommented and growTree1() must be commented out
+
 
 
