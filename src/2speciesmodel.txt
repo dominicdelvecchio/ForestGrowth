@@ -1,0 +1,110 @@
+****Species1 starts at 0 and increments to 1 and species to starts at 1 and decreases to 0
+
+Species1 Cycle count = 1     GrowthProbability1 = 0.0    Biomass =    0.0
+ Species2 Cycle count = 1     GrowthProbability2 = 1.0    Biomass =    3017.0
+Count = 1000
+ Species1 Cycle count = 2     GrowthProbability1 = 0.05    Biomass =    0.0
+ Species2 Cycle count = 2     GrowthProbability2 = 0.95    Biomass =    3015.0
+Count = 1000
+ Species1 Cycle count = 3     GrowthProbability1 = 0.1    Biomass =    152.0
+ Species2 Cycle count = 3     GrowthProbability2 = 0.9    Biomass =    2897.0
+Count = 1000
+ Species1 Cycle count = 4     GrowthProbability1 = 0.15    Biomass =    299.0
+ Species2 Cycle count = 4     GrowthProbability2 = 0.85    Biomass =    2707.0
+Count = 1000
+ Species1 Cycle count = 5     GrowthProbability1 = 0.2    Biomass =    452.0
+ Species2 Cycle count = 5     GrowthProbability2 = 0.8    Biomass =    2566.0
+Count = 1000
+ Species1 Cycle count = 6     GrowthProbability1 = 0.25    Biomass =    607.0
+ Species2 Cycle count = 6     GrowthProbability2 = 0.75    Biomass =    2427.0
+Count = 1000
+ Species1 Cycle count = 7     GrowthProbability1 = 0.3    Biomass =    752.0
+ Species2 Cycle count = 7     GrowthProbability2 = 0.7    Biomass =    2262.0
+Count = 1000
+ Species1 Cycle count = 8     GrowthProbability1 = 0.35    Biomass =    913.0
+ Species2 Cycle count = 8     GrowthProbability2 = 0.65    Biomass =    2137.0
+Count = 1000
+ Species1 Cycle count = 9     GrowthProbability1 = 0.4    Biomass =    1055.0
+ Species2 Cycle count = 9     GrowthProbability2 = 0.6    Biomass =    1962.0
+Count = 1000
+ Species1 Cycle count = 10     GrowthProbability1 = 0.45    Biomass =    1206.0
+ Species2 Cycle count = 10     GrowthProbability2 = 0.55    Biomass =    1814.0
+Count = 1000
+ Species1 Cycle count = 11     GrowthProbability1 = 0.5    Biomass =    1365.0
+ Species2 Cycle count = 11     GrowthProbability2 = 0.5    Biomass =    1671.0
+Count = 1000
+ Species1 Cycle count = 12     GrowthProbability1 = 0.55    Biomass =    1518.0
+ Species2 Cycle count = 12     GrowthProbability2 = 0.45    Biomass =    1516.0
+Count = 1000
+ Species1 Cycle count = 13     GrowthProbability1 = 0.6    Biomass =    1673.0
+ Species2 Cycle count = 13     GrowthProbability2 = 0.4    Biomass =    1367.0
+Count = 1000
+ Species1 Cycle count = 14     GrowthProbability1 = 0.65    Biomass =    1812.0
+ Species2 Cycle count = 14     GrowthProbability2 = 0.35    Biomass =    1205.0
+Count = 1000
+ Species1 Cycle count = 15     GrowthProbability1 = 0.7    Biomass =    1986.0
+ Species2 Cycle count = 15     GrowthProbability2 = 0.3    Biomass =    1069.0
+Count = 1000
+ Species1 Cycle count = 16     GrowthProbability1 = 0.75    Biomass =    2104.0
+ Species2 Cycle count = 16     GrowthProbability2 = 0.25    Biomass =    904.0
+Count = 1000
+ Species1 Cycle count = 17     GrowthProbability1 = 0.8    Biomass =    2278.0
+ Species2 Cycle count = 17     GrowthProbability2 = 0.2    Biomass =    759.0
+Count = 1000
+ Species1 Cycle count = 18     GrowthProbability1 = 0.85    Biomass =    2413.0
+ Species2 Cycle count = 18     GrowthProbability2 = 0.15    Biomass =    603.0
+Count = 1000
+ Species1 Cycle count = 19     GrowthProbability1 = 0.9    Biomass =    2617.0
+ Species2 Cycle count = 19     GrowthProbability2 = 0.1    Biomass =    462.0
+Count = 1000
+ Species1 Cycle count = 20     GrowthProbability1 = 0.95    Biomass =    2728.0
+ Species2 Cycle count = 20     GrowthProbability2 = 0.05    Biomass =    302.0
+Count = 1000
+ Species1 Cycle count = 21     GrowthProbability1 = 1.0    Biomass =    2909.0
+ Species2 Cycle count = 21     GrowthProbability2 = 0.0    Biomass =    152.0
+Count = 1000
+
+
+****Species 1 and to starting at 2.5% growth probability and both incrementing by 5.0%
+
+
+Species1 Cycle count = 1     GrowthProbability1 = 0.025    Biomass =    7369.0
+ Species2 Cycle count = 1     GrowthProbability2 = 0.025    Biomass =    7374.0
+ Species1 Cycle count = 2     GrowthProbability1 = 0.075    Biomass =    7391.0
+ Species2 Cycle count = 2     GrowthProbability2 = 0.075    Biomass =    7352.0
+ Species1 Cycle count = 3     GrowthProbability1 = 0.125    Biomass =    6630.0
+ Species2 Cycle count = 3     GrowthProbability2 = 0.125    Biomass =    6616.0
+ Species1 Cycle count = 4     GrowthProbability1 = 0.175    Biomass =    5147.0
+ Species2 Cycle count = 4     GrowthProbability2 = 0.175    Biomass =    5143.0
+ Species1 Cycle count = 5     GrowthProbability1 = 0.225    Biomass =    4087.0
+ Species2 Cycle count = 5     GrowthProbability2 = 0.225    Biomass =    4086.0
+ Species1 Cycle count = 6     GrowthProbability1 = 0.275    Biomass =    3314.0
+ Species2 Cycle count = 6     GrowthProbability2 = 0.275    Biomass =    3316.0
+ Species1 Cycle count = 7     GrowthProbability1 = 0.325    Biomass =    2743.0
+ Species2 Cycle count = 7     GrowthProbability2 = 0.325    Biomass =    2746.0
+ Species1 Cycle count = 8     GrowthProbability1 = 0.375    Biomass =    2353.0
+ Species2 Cycle count = 8     GrowthProbability2 = 0.375    Biomass =    2355.0
+ Species1 Cycle count = 9     GrowthProbability1 = 0.425    Biomass =    2032.0
+ Species2 Cycle count = 9     GrowthProbability2 = 0.425    Biomass =    2033.0
+ Species1 Cycle count = 10     GrowthProbability1 = 0.475    Biomass =    1780.0
+ Species2 Cycle count = 10     GrowthProbability2 = 0.475    Biomass =    1778.0
+ Species1 Cycle count = 11     GrowthProbability1 = 0.525    Biomass =    1613.0
+ Species2 Cycle count = 11     GrowthProbability2 = 0.525    Biomass =    1613.0
+ Species1 Cycle count = 12     GrowthProbability1 = 0.575    Biomass =    1445.0
+ Species2 Cycle count = 12     GrowthProbability2 = 0.575    Biomass =    1448.0
+ Species1 Cycle count = 13     GrowthProbability1 = 0.625    Biomass =    1298.0
+ Species2 Cycle count = 13     GrowthProbability2 = 0.625    Biomass =    1304.0
+ Species1 Cycle count = 14     GrowthProbability1 = 0.675    Biomass =    1209.0
+ Species2 Cycle count = 14     GrowthProbability2 = 0.675    Biomass =    1215.0
+ Species1 Cycle count = 15     GrowthProbability1 = 0.725    Biomass =    1114.0
+ Species2 Cycle count = 15     GrowthProbability2 = 0.725    Biomass =    1112.0
+ Species1 Cycle count = 16     GrowthProbability1 = 0.775    Biomass =    1024.0
+ Species2 Cycle count = 16     GrowthProbability2 = 0.775    Biomass =    1021.0
+ Species1 Cycle count = 17     GrowthProbability1 = 0.825    Biomass =    910.0
+ Species2 Cycle count = 17     GrowthProbability2 = 0.825    Biomass =    911.0
+ Species1 Cycle count = 18     GrowthProbability1 = 0.875    Biomass =    842.0
+ Species2 Cycle count = 18     GrowthProbability2 = 0.875    Biomass =    842.0
+ Species1 Cycle count = 19     GrowthProbability1 = 0.925    Biomass =    808.0
+ Species2 Cycle count = 19     GrowthProbability2 = 0.925    Biomass =    808.0
+ Species1 Cycle count = 20     GrowthProbability1 = 0.975    Biomass =    709.0
+ Species2 Cycle count = 20     GrowthProbability2 = 0.975    Biomass =    708.0

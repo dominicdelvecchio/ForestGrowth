@@ -92,13 +92,13 @@ public class Forrest
     {
       for(int x=0; x<252; x++)
       {
-        if(forrest[y][x].getStatus() == 1)
+        if(forrest[y][x].getStatus()==1)
         {
-          if(forrest[y][x].getSpecies() ==1)
+          if(forrest[y][x].getSpecies()==1)
           {
             bioMass1++;
           }
-          else bioMass2++;
+          else if(forrest[y][x].getSpecies()==2) bioMass2++;
         }
       }
     }
@@ -191,8 +191,8 @@ public void simulate()
   {
     for(int x=1; x<251; x++)
     {
-      forrest[y][x].growTree1();
-      //forrest[y][x].growTree2();
+      //forrest[y][x].growTree1();
+      forrest[y][x].growTree2();
       
       forrest[y][x].lightning();
     }
@@ -209,27 +209,30 @@ public void simulate()
       longevity = count;
     }
   }
-  {
-    if (count > 10)
-    {
-      if (count >= 1000 || bioMass1 <= longevity)
+  
+    
+      if (count >= 1000)
       {
         if (deathFlag == 0)
         {
           longevity = count;
         }
         double d = 1000;
-        Data data1 = new Data(avgGrowth(sumAvg1), "C:\\Users\\Dominic\\IdeaProjects\\Forrest Growth\\src\\GA_Rate_1.0%_2ndAlgorithm_Step");
-        //Data data2 = new Data(longevity, "C:\\Users\\Dominic\\IdeaProjects\\Forrest Growth\\src\\GA_Longevity_Low.txt");
-        System.out.println("Cycle count = " + cycle + "     GrowthProbability = " + growthProb1 / d);
-        System.out.println("Biomass =    " + avgGrowth(sumAvg1) + "   Longevity = " + longevity + "   Fire Department = " + fireDep);
+        Data data1 = new Data(avgGrowth(sumAvg1), "C:\\Users\\Dominic\\IdeaProjects\\Forrest Growth\\src\\species1.txt");
+        Data data2 = new Data(avgGrowth(sumAvg2), "C:\\Users\\Dominic\\IdeaProjects\\Forrest Growth\\src\\species2.txt");
+        System.out.println(" Species1 Cycle count = " + cycle + "     GrowthProbability1 = " + growthProb1 / d + "    Biomass =    " + avgGrowth(sumAvg1));
+        System.out.println(" Species2 Cycle count = " + cycle + "     GrowthProbability2 = " + growthProb2 / d + "    Biomass =    " + avgGrowth(sumAvg2));
+        //System.out.println("Count = " + count);
+        //System.out.println("Biomass =    " + avgGrowth(sumAvg1) + "   Longevity = " + longevity + "   Fire Department = " + fireDep);
         deathFlag = 0;
         //System.out.println("Longevity = " + longevity);
         clearForrest();
         count = 0;
         sumAvg1 = 0;
+        sumAvg2 = 0;
         longevity = 0;
-        //growthProb1 = growthProb1 + 50;
+        growthProb1 = growthProb1 + 50;
+        growthProb2 = growthProb2 + 50;
         //fireDep = fireDep +50;
         cycle++;
       }
@@ -237,5 +240,4 @@ public void simulate()
   }
   //System.out.println(count);
   //System.out.println(bioMass1);
-}
-}
+
